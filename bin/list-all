@@ -1,1 +1,16 @@
+#!/usr/bin/env bash
 
+set -euo pipefail
+
+github_path='prometheus/prometheus'
+releases_path="https://api.github.com/repos/${github_path}/releases"
+cmd='curl -f -s'
+if [[ -n "${GITHUB_API_TOKEN-}" ]]; then
+  cmd="${cmd} -H 'Authorization: token ${GITHUB_API_TOKEN}'"
+fi
+cmd="${cmd} ${releases_path}"
+
+eval "${cmd}" |
+  jq '.[] | select(.prerelease == false) | .tag_name | sub("v"; "")' -r |
+  sort --version-sort |
+  xargs echo
