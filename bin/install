@@ -37,8 +37,6 @@ install_tool() {
   chmod +x "${binary_path}"
 }
 
-# prometheus-2.11.1.linux-amd64/promtool
-
 get_binary_path_in_archive() {
   local archive_dir=$1
   local binary_name=$2
@@ -63,7 +61,7 @@ get_filename() {
   echo "prometheus-${version}.${platform}.tar.gz"
 }
 
-# https://github.com/prometheus/prometheus/releases/download/v2.11.1/prometheus-2.11.1.linux-amd64.tar.gz
+# https://github.com/errata-ai/vale/releases/download/v2.10.4/vale_2.10.4_Linux_64-bit.tar.gz
 
 get_download_url() {
   local version="$1"
@@ -72,7 +70,7 @@ get_download_url() {
   local filename
   filename="$(get_filename "$version" "$platform" "$binary_name")"
 
-  echo "https://github.com/prometheus/prometheus/releases/download/v${version}/${filename}"
+  echo "https://github.com/errata-ai/vale/releases/download/v${version}/${filename}"
 }
 
 tmp_download_dir="$(mktemp -d -t 'asdf_XXXXXXXX')"
