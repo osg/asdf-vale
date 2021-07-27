@@ -1,6 +1,6 @@
 # asdf-vale
 
-An [asdf](http://asdf-vm.com/) plugin for [Vale linter](https://docs.errata.ai/vale/about).
+An [asdf](http://asdf-vm.com/) plugin for the [Vale](https://docs.errata.ai/vale/about) linter.
 
 ## Install
 
